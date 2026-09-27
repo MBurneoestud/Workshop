@@ -2,7 +2,7 @@ import { getBaseURL } from "@lib/util/env"
 import { Noto_Serif_JP, Source_Sans_3 } from "next/font/google"
 import { Metadata } from "next"
 import { STORE_DESCRIPTION, STORE_NAME } from "@lib/store"
-import "styles/globals.css"
+import "../styles/globals.css"
 
 const notoSerif = Noto_Serif_JP({
   subsets: ["latin"],
