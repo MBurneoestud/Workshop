@@ -19,6 +19,8 @@ const usdEur = (usd: number, eur: number) => [
   { amount: usd, currency_code: "usd" },
 ]
 
+const TALLAS = ["S", "M", "L", "XL"]
+
 const IMAGE_MAP: Record<string, string[]> = {
   "pack-inicio-keiko": ["pack.jpg"],
   "men-pieza": ["men-1.jpg", "men-2.jpg", "men-3.jpg"],
@@ -119,8 +121,8 @@ export default async function syncCatalogImages({ container }: ExecArgs) {
         category_ids: [cat("bogu")].filter(Boolean) as string[],
         collection_id: col("keiko-diario"),
         images: asset(...IMAGE_MAP["do-pieza"]),
-        options: [{ title: "Talla", values: ["A", "B", "C", "L"] }],
-        variants: ["A", "B", "C", "L"].map((size) => ({
+        options: [{ title: "Talla", values: [...TALLAS] }],
+        variants: TALLAS.map((size) => ({
           title: size,
           sku: `DO-${size}`,
           options: { Talla: size },
@@ -141,8 +143,8 @@ export default async function syncCatalogImages({ container }: ExecArgs) {
         category_ids: [cat("bogu")].filter(Boolean) as string[],
         collection_id: col("keiko-diario"),
         images: asset(...IMAGE_MAP["tare-pieza"]),
-        options: [{ title: "Talla", values: ["A", "B", "C", "L"] }],
-        variants: ["A", "B", "C", "L"].map((size) => ({
+        options: [{ title: "Talla", values: [...TALLAS] }],
+        variants: TALLAS.map((size) => ({
           title: size,
           sku: `TARE-${size}`,
           options: { Talla: size },
@@ -165,8 +167,8 @@ export default async function syncCatalogImages({ container }: ExecArgs) {
         ) as string[],
         collection_id: col("inicio-en-el-dojo"),
         images: asset(...IMAGE_MAP["gi-set-keiko"]),
-        options: [{ title: "Talla", values: ["1", "2", "3", "4", "5"] }],
-        variants: ["1", "2", "3", "4", "5"].map((size) => ({
+        options: [{ title: "Talla", values: [...TALLAS] }],
+        variants: TALLAS.map((size) => ({
           title: `Talla ${size}`,
           sku: `GISET-${size}`,
           options: { Talla: size },

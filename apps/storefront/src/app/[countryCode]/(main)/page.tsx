@@ -8,6 +8,9 @@ import { listCategories } from "@lib/data/categories"
 import { getRegion } from "@lib/data/regions"
 import { STORE_DESCRIPTION, STORE_NAME } from "@lib/store"
 
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
 export const metadata: Metadata = {
   title: `${STORE_NAME} · implementos de kendo`,
   description: STORE_DESCRIPTION,

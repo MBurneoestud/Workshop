@@ -19,6 +19,8 @@ const usdEur = (usd: number, eur: number) => [
   { amount: usd, currency_code: "usd" },
 ]
 
+const TALLAS = ["S", "M", "L", "XL"]
+
 const IMG = {
   bogu: "https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=1400&q=80",
   shinai:
@@ -248,19 +250,24 @@ export default async function seedKendo({ container }: ExecArgs) {
           title: "Pack de inicio Keiko",
           handle: "pack-inicio-keiko",
           description:
-            "Todo lo necesario para el primer mes en el dojo: shinai 39, tsuba, tsubadome, kendogi y hakama jersey, y tenugui. Pensado para principiantes en Ecuador.",
+            "Kit completo para empezar a entrenar: bogu entero (men, do, tare y kote), shinai, tenugui, tsuba y tsubadome, bolsa para shinai, bolsa para bogu, y uniforme (kendogi y hakama). Un solo pedido para el primer keiko en el dojo.",
           status: ProductStatus.PUBLISHED,
-          weight: 2200,
+          weight: 7800,
           shipping_profile_id: shippingProfile.id,
-          category_ids: [cat("packs-de-inicio"), cat("uniformes")],
+          category_ids: [
+            cat("packs-de-inicio"),
+            cat("uniformes"),
+            cat("bogu"),
+            cat("bolsos"),
+          ],
           collection_id: col("inicio-en-el-dojo"),
           images: [{ url: IMG.cloth }, { url: IMG.shinai }],
-          options: [{ title: "Talla", values: ["1", "2", "3", "4", "5"] }],
-          variants: ["1", "2", "3", "4", "5"].map((size) => ({
+          options: [{ title: "Talla", values: [...TALLAS] }],
+          variants: TALLAS.map((size) => ({
             title: `Talla ${size}`,
             sku: `PACK-KEIKO-${size}`,
             options: { Talla: size },
-            prices: usdEur(153, 145),
+            prices: usdEur(729, 689),
           })),
           sales_channels: channel,
         },
@@ -275,10 +282,10 @@ export default async function seedKendo({ container }: ExecArgs) {
           category_ids: [cat("bogu")],
           collection_id: col("keiko-diario"),
           images: [{ url: IMG.bogu }, { url: IMG.wood }],
-          options: [{ title: "Talla", values: ["Junior", "A", "B", "C", "L"] }],
-          variants: ["Junior", "A", "B", "C", "L"].map((size) => ({
+          options: [{ title: "Talla", values: [...TALLAS] }],
+          variants: TALLAS.map((size) => ({
             title: size,
-            sku: `BOGU-ICHI-${size.toUpperCase()}`,
+            sku: `BOGU-ICHI-${size}`,
             options: { Talla: size },
             prices: usdEur(279, 259),
           })),
@@ -295,8 +302,8 @@ export default async function seedKendo({ container }: ExecArgs) {
           category_ids: [cat("bogu")],
           collection_id: col("shiai"),
           images: [{ url: IMG.bogu }],
-          options: [{ title: "Talla", values: ["A", "B", "C", "L"] }],
-          variants: ["A", "B", "C", "L"].map((size) => ({
+          options: [{ title: "Talla", values: [...TALLAS] }],
+          variants: TALLAS.map((size) => ({
             title: size,
             sku: `BOGU-JISSEN-${size}`,
             options: { Talla: size },
@@ -315,8 +322,8 @@ export default async function seedKendo({ container }: ExecArgs) {
           category_ids: [cat("bogu")],
           collection_id: col("keiko-diario"),
           images: [{ url: IMG.bogu }],
-          options: [{ title: "Talla", values: ["A", "B", "C", "L"] }],
-          variants: ["A", "B", "C", "L"].map((size) => ({
+          options: [{ title: "Talla", values: [...TALLAS] }],
+          variants: TALLAS.map((size) => ({
             title: size,
             sku: `MEN-${size}`,
             options: { Talla: size },
@@ -335,8 +342,8 @@ export default async function seedKendo({ container }: ExecArgs) {
           category_ids: [cat("bogu")],
           collection_id: col("keiko-diario"),
           images: [{ url: IMG.wood }],
-          options: [{ title: "Talla", values: ["S", "M", "L"] }],
-          variants: ["S", "M", "L"].map((size) => ({
+          options: [{ title: "Talla", values: [...TALLAS] }],
+          variants: TALLAS.map((size) => ({
             title: size,
             sku: `KOTE-${size}`,
             options: { Talla: size },
@@ -395,8 +402,8 @@ export default async function seedKendo({ container }: ExecArgs) {
           category_ids: [cat("uniformes")],
           collection_id: col("keiko-diario"),
           images: [{ url: IMG.gi }],
-          options: [{ title: "Talla", values: ["1", "2", "3", "4", "5"] }],
-          variants: ["1", "2", "3", "4", "5"].map((size) => ({
+          options: [{ title: "Talla", values: [...TALLAS] }],
+          variants: TALLAS.map((size) => ({
             title: `Talla ${size}`,
             sku: `GI-HANA-${size}`,
             options: { Talla: size },
@@ -415,8 +422,8 @@ export default async function seedKendo({ container }: ExecArgs) {
           category_ids: [cat("uniformes")],
           collection_id: col("keiko-diario"),
           images: [{ url: IMG.gi }, { url: IMG.cloth }],
-          options: [{ title: "Talla", values: ["23", "24", "25", "26", "27", "28"] }],
-          variants: ["23", "24", "25", "26", "27", "28"].map((size) => ({
+          options: [{ title: "Talla", values: [...TALLAS] }],
+          variants: TALLAS.map((size) => ({
             title: size,
             sku: `HAKAMA-CHO-${size}`,
             options: { Talla: size },

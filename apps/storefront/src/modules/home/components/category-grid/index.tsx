@@ -7,7 +7,7 @@ const COPY: Record<string, string> = {
   uniformes: "Kendogi y hakama, jersey e índigo.",
   bolsos: "Mochilas de bogu y fundas de shinai.",
   accesorios: "Tsuba, tsubadome, tenugui, himo.",
-  "packs-de-inicio": "El primer mes en el dojo, en un solo pedido.",
+  "packs-de-inicio": "Bogu, uniforme, shinai y bolsos en un solo pedido.",
 }
 
 export default function CategoryGrid({
