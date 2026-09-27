@@ -43,6 +43,7 @@ yarn-error.log*
 
 # Medusa build output
 **/.medusa/
+**/*.tsbuildinfo
 
 # Turbo
 .turbo
