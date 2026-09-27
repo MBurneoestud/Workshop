@@ -1,0 +1,17 @@
+packages:
+  - "apps/**"
+  - "!apps/backend/.medusa/**"
+
+# pnpm 11+
+allowBuilds:
+  "@medusajs/telemetry": true
+  '@swc/core': set this to true or false
+  esbuild: set this to true or false
+  msgpackr-extract: set this to true or false
+  protobufjs: set this to true or false
+  sharp: set this to true or false
+  unrs-resolver: set this to true or false
+
+# pnpm 10.x
+onlyBuiltDependencies:
+  - "@medusajs/telemetry"
